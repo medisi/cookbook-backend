@@ -3,7 +3,10 @@ const cors = require('cors');
 const connectDB = require('./config/database');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://cook-book-pb5yeqg54-medisis-projects.vercel.app', // или '*' для теста
+  credentials: true
+}));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
